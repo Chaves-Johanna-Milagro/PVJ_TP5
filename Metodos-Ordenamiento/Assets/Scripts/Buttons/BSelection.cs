@@ -22,6 +22,7 @@ public class BSelection : MonoBehaviour
     private IEnumerator SelectionSort()
     {
         _timer.StartTimer();
+        _arrayManager.CreateArray(true); //crear un array random
         Element[] array = _arrayManager.Array;
 
         // Todos grises al inicio

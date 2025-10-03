@@ -6,7 +6,7 @@ public class ArrayManager : MonoBehaviour
     [SerializeField] private Element elementPrefab;
      private int arraySize = 10;
      private float posX = -7.8f;
-     private float posY = 2.15f;
+     private float posY = 1f;
 
     public Element[] Array { get; private set; }
 
@@ -27,8 +27,13 @@ public class ArrayManager : MonoBehaviour
 
             Array[i] = Instantiate(elementPrefab, new Vector3(elementPosX, posY, 0f), Quaternion.identity);
 
+            // Obtenemos la escala original del prefab
+            Vector3 originalScale = elementPrefab.transform.localScale;
+
             float scaleValue = random ? rnd.Next(1, 9) : (i + 1);
-            Array[i].transform.localScale = new Vector3(scaleValue, scaleValue, 1f);
+
+            // Multiplicamos la escala original por el valor deseado
+            Array[i].transform.localScale = originalScale * scaleValue;
 
             Array[i].InitColor = new Color(i / 10f, i / 10f, i / 10f);
 

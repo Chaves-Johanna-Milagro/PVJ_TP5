@@ -22,6 +22,7 @@ public class BInsertion : MonoBehaviour
     private IEnumerator InsertionSort()
     {
         _timer.StartTimer();
+        _arrayManager.CreateArray(true); //crear un array random
         Element[] array = _arrayManager.Array;
 
         // Al inicio todos grises
